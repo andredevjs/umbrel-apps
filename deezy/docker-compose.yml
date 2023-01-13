@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   web:
-    image: andredevjs/deezy-earn-website:v1.4
+    image: andredevjs/deezy-earn-website:v1.5
     restart: on-failure
     stop_grace_period: 1m
     ports:
@@ -23,7 +23,9 @@ services:
       # Uncomment to mount Bitcoin Core's data directory as
       # read-only inside the Docker container at path /bitcoin
       # - ${APP_BITCOIN_DATA_DIR}:/bitcoin:ro
-    # environment:
+    environment:
+      PROXY_AUTH_ADD: "false"
+
       # Pass any environment variables to your app for configuration in the form:
       # VARIABLE_NAME: value
       #
