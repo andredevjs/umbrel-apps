@@ -7,7 +7,7 @@ services:
       # e.g. 'btc-rpc-explorer_web_1'
       # Note that the '_1' at the end is needed
       APP_HOST: deezy-web_1
-      APP_PORT: 8080
+      APP_PORT: 3005
 
   web:
     image: andredevjs/deezy-earn-website:latest
@@ -17,7 +17,7 @@ services:
       # Replace <port> with the port that your app's web server
       # is listening inside the Docker container. If you need to
       # expose more ports, add them below.
-      - 8080:80
+      - 3005:80
     volumes:
       # Uncomment to mount your data directories inside
       # the Docker container for storing persistent data
