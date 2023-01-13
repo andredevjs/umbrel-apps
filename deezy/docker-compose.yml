@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   web:
-    image: andredevjs/deezy-earn-website:v1.1
+    image: andredevjs/deezy-earn-website:v1.2
     restart: on-failure
     stop_grace_period: 1m
     ports:
