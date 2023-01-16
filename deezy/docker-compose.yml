@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   web:
-    image: andredevjs/deezy:v1.9@sha256:8a30326dc35ceb6b39cbbe42a515fd4be483f44878730e39809490a5fc55870e
+    image: andredevjs/deezy:v1.10@sha256:fb8aefe4f90f7540fec2f687bb0f238f2dd14455f7a2783c0d8632d37582aff9
     restart: on-failure
     stop_grace_period: 1m
     ports:
@@ -10,21 +10,8 @@ services:
       # is listening inside the Docker container. If you need to
       # expose more ports, add them below.
       - 3006:80
-    volumes:
-      # Uncomment to mount your data directories inside
-      # the Docker container for storing persistent data
-      # - ${APP_DATA_DIR}/foo:/foo
-      # - ${APP_DATA_DIR}/bar:/bar
-
-      # Uncomment to mount LND's data directory as read-only
-      # inside the Docker container at path /lnd
-      - ${APP_LIGHTNING_NODE_DATA_DIR}:/lnd:ro
-
-      # Uncomment to mount Bitcoin Core's data directory as
-      # read-only inside the Docker container at path /bitcoin
-      # - ${APP_BITCOIN_DATA_DIR}:/bitcoin:ro
-    environment:
-      PROXY_AUTH_ADD: "false"
+    # environment:
+    #   PROXY_AUTH_ADD: "false"
 
       # Pass any environment variables to your app for configuration in the form:
       # VARIABLE_NAME: value
@@ -48,3 +35,23 @@ services:
   # db:
   #   image: <docker-image>:<tag>
   #   ...
+  api:
+    image: andredevjs/deezy-service:v1.10
+    restart: on-failure
+    stop_grace_period: 1m
+    ports:
+      - 3007:3007
+      - 9615:9615
+    # volumes:
+      # Uncomment to mount your data directories inside
+      # the Docker container for storing persistent data
+      # - ${APP_DATA_DIR}/foo:/foo
+      # - ${APP_DATA_DIR}/bar:/bar
+
+      # Uncomment to mount LND's data directory as read-only
+      # inside the Docker container at path /lnd
+      # - ${APP_LIGHTNING_NODE_DATA_DIR}:/lnd:ro
+
+      # Uncomment to mount Bitcoin Core's data directory as
+      # read-only inside the Docker container at path /bitcoin
+      # - ${APP_BITCOIN_DATA_DIR}:/bitcoin:ro
