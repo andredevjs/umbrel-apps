@@ -42,7 +42,7 @@ services:
     ports:
       - 3007:3007
       - 9615:9615
-    # volumes:
+    volumes:
       # Uncomment to mount your data directories inside
       # the Docker container for storing persistent data
       # - ${APP_DATA_DIR}/foo:/foo
