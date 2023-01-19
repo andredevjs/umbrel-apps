@@ -36,7 +36,7 @@ services:
   #   image: <docker-image>:<tag>
   #   ...
   api:
-    image: andredevjs/deezy-earn-service:v0.2
+    image: andredevjs/deezy-earn-service:v0.3
     restart: on-failure
     stop_grace_period: 1m
     ports:
@@ -50,3 +50,8 @@ services:
       # Uncomment to mount Bitcoin Core's data directory as
       # read-only inside the Docker container at path /bitcoin
       # - ${APP_BITCOIN_DATA_DIR}:/bitcoin:ro
+    environment:
+      APP_LIGHTNING_NODE_IP: "$APP_LIGHTNING_NODE_IP"
+      APP_LIGHTNING_NODE_GRPC_PORT: "$APP_LIGHTNING_NODE_GRPC_PORT"
+      TOR_HOST: "$TOR_PROXY_IP"
+      TOR_PORT: "$TOR_PROXY_PORT"
