@@ -36,7 +36,7 @@ services:
   #   image: <docker-image>:<tag>
   #   ...
   api:
-    image: docker.io/andredevjs/deezy-earn-service:v0.5
+    image: docker.io/andredevjs/deezy-earn-service:v0.6
     restart: on-failure
     stop_grace_period: 1m
     ports:
