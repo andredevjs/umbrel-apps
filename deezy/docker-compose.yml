@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   web:
-    image: andredevjs/deezy:v1.13@sha256:35bc439b79be1646991141f14bb999c6d92235d29c5756
+    image: andredevjs/deezy:v1.13
     restart: on-failure
     stop_grace_period: 1m
     ports:
