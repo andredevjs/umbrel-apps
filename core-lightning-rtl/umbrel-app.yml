@@ -6,7 +6,7 @@ version: "0.13.2-beta"
 tagline: Manage your Core Lightning node with RTL
 description: >-
   This version of RTL is specifically configured to use your Core Lightning node.
-  
+
   RTL provides a full function, device agnostic, web user interface to help
   manage lightning node operation. It enables full control over your lightning
   node with rich functionality for Bitcoin base layer and Lightning Network.
@@ -49,7 +49,7 @@ releaseNotes: >-
   - User customizable grids enabling you to control: number of rows on the page, columns you want to view and default sorting order
 
   - Setting to control opening of unannounced channels by default
-  
+
   - Other bug fixes and usability fixes
 submitter: Umbrel
 submission: https://github.com/getumbrel/umbrel-apps/pull/7

@@ -13,7 +13,7 @@ services:
     restart: on-failure
     stop_grace_period: 1m
     volumes:
-        - $APP_DATA_DIR/data/db:/var/lib/postgresql/data
+      - $APP_DATA_DIR/data/db:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=bleskomat_server
       - POSTGRES_DB=bleskomat_server
@@ -35,7 +35,7 @@ services:
       BLESKOMAT_SERVER_PORT: 3333
       BLESKOMAT_SERVER_URL: "$APP_HIDDEN_SERVICE"
       BLESKOMAT_SERVER_ENDPOINT: "/u"
-      BLESKOMAT_SERVER_AUTH_API_KEYS: '[]'
+      BLESKOMAT_SERVER_AUTH_API_KEYS: "[]"
       BLESKOMAT_SERVER_LIGHTNING: '{"backend":"lnd","config":{"cert":"/lnd/tls.cert","protocol":"https","hostname":"$APP_LIGHTNING_NODE_IP:$APP_LIGHTNING_NODE_REST_PORT","macaroon":"/lnd/data/chain/bitcoin/$APP_BITCOIN_NETWORK/admin.macaroon"}}'
       BLESKOMAT_SERVER_STORE: '{"backend":"knex","config":{"client":"postgres","connection":{"host":"bleskomat-server_db_1","port":5432,"user":"bleskomat_server","password":"moneyprintergobrrr","database":"bleskomat_server"}}}'
       BLESKOMAT_SERVER_COINRATES_DEFAULTS_PROVIDER: "coinbase"

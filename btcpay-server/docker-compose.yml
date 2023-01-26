@@ -60,7 +60,13 @@ services:
     # user: "1000:1000"
     restart: on-failure
     # https://github.com/btcpayserver/btcpayserver-docker/commit/a65e7db6851092c75c5ac6c091a5f36ccc5fc26e
-    command: ["-c", "random_page_cost=1.0", "-c", "shared_preload_libraries=pg_stat_statements"]
+    command:
+      [
+        "-c",
+        "random_page_cost=1.0",
+        "-c",
+        "shared_preload_libraries=pg_stat_statements",
+      ]
     stop_grace_period: 1m
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust

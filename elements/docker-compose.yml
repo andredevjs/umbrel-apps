@@ -34,12 +34,12 @@ services:
       - -rpcbind=0.0.0.0 # can we do better here?
       - -rpcallowip=0.0.0.0/0 # can we do better here?
       - -rpcport=$APP_ELEMENTS_NODE_RPC_PORT
-      # P2P 
+      # P2P
       - -port=$APP_ELEMENTS_NODE_P2P_PORT
       - -blockfilterindex=1
       - -peerblockfilters=1
-  
-  web: 
+
+  web:
     image: ghcr.io/tiero/elements-web:v0.0.3@sha256:b80dc0df2a4693668a97b874aad6d0a8d3239d03f4d05b4342600166934d0b87
     depends_on:
       - node
@@ -50,10 +50,10 @@ services:
       RPC_PORT: $APP_ELEMENTS_NODE_RPC_PORT
       RPC_HOST: elements_node_1
       P2P_PORT: $APP_ELEMENTS_NODE_P2P_PORT
-      # Remote 
+      # Remote
       REMOTE_RPC_HOST: $APP_ELEMENTS_RPC_HIDDEN_SERVICE
       REMOTE_P2P_HOST: $APP_ELEMENTS_P2P_HIDDEN_SERVICE
-  
+
   tor:
     image: getumbrel/tor:0.4.7.8@sha256:2ace83f22501f58857fa9b403009f595137fa2e7986c4fda79d82a8119072b6a
     user: "1000:1000"

@@ -11,11 +11,11 @@ description: >-
 
 
   - 🚀 Fast: written in Rust for blazing-fast speeds and memory safety
-  
+
   - ☁️ Light: no JavaScript, no ads, no tracking, no bloat
-  
+
   - 🕵 Private: all requests are proxied through the server, including media
-  
+
   - 🔒 Secure: strong Content Security Policy prevents browser requests to Reddit
 
 developer: Spikecodes

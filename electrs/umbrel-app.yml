@@ -31,11 +31,11 @@ path: ""
 defaultPassword: ""
 releaseNotes: >
   - Update dependencies (bitcoin, bitcoincore-rpc, tiny_http, serde_json, env_logger)
-  
+
   - Fix mempool fee rate formatting (#761)
-  
+
   - Allow configuring signet p2p magic (#762, #768)
-  
+
   - Don't panic in case of an invalid block header height (#786)
 submitter: Umbrel
 submission: https://github.com/getumbrel/umbrel/pull/242

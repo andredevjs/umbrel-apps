@@ -35,7 +35,7 @@ defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >
   - Use optimization to directly connect to the nbx db for faster querying and better dashboard functionality
-  
+
 
   1.6.12 is out!
 
@@ -53,7 +53,7 @@ releaseNotes: >
   - Allow specifing fee block target for onchain payout processor
 
   - Greenfield: Extend LN GetInfo data
-  
+
   - Bug fixes and improvements, too.
 submitter: Umbrel
 submission: https://github.com/getumbrel/umbrel/pull/353
