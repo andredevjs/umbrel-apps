@@ -9,7 +9,7 @@ services:
       - 3006:80
 
   api:
-    image: andredevjs/deezy-auto-earn-api:v1.3
+    image: andredevjs/deezy-auto-earn-api:v1.4
     restart: on-failure
     stop_grace_period: 1m
     ports:
