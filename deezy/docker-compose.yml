@@ -9,7 +9,7 @@ services:
       - 3006:80
 
   api:
-    image: andredevjs/deezy-auto-earn-api:v1.4
+    image: andredevjs/deezy-auto-earn-api:v1.5
     restart: on-failure
     stop_grace_period: 1m
     ports:
@@ -23,8 +23,8 @@ services:
       TOR_HOST: "$TOR_PROXY_IP"
       TOR_PORT: "$TOR_PROXY_PORT"
       APP_DEEZY_SERVICE_CONFIG_DIR: "/app/config"
-      TLS_CERT_PATH: "/lnd/data/lnd/tls.cert"
-      MACAROON_PATH: "/lnd/data/chain/bitcoin/mainnet/admin.macaroon"
+      TLS_CERT_PATH: "/lnd/lnd/tls.cert"
+      MACAROON_PATH: "/lnd/chain/bitcoin/mainnet/admin.macaroon"
   earn:
     image: andredevjs/deezy-auto-earn:v1.0
     restart: on-failure
