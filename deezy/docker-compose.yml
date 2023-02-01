@@ -1,16 +1,40 @@
 version: "3.7"
 
 services:
-  web:
-    image: andredevjs/deezy:v1.15
+  dashboard:
+    image: andredevjs/deezy-auto-earn-dashboard:v1.0
     restart: on-failure
     stop_grace_period: 1m
     ports:
-      # Replace <port> with the port that your app's web server
-      # is listening inside the Docker container. If you need to
-      # expose more ports, add them below.
       - 3006:80
-    # environment:
+
+  api:
+    image: andredevjs/deezy-auto-earn-api:v1.3
+    restart: on-failure
+    stop_grace_period: 1m
+    ports:
+      - 3007:3007
+    volumes:
+      - ${APP_DEEZY_SERVICE_LOGS_DIR}:/app/logs
+      - ${APP_DEEZY_SERVICE_CONFIG_DIR}:/app/config
+    environment:
+      APP_LIGHTNING_NODE_IP: "$APP_LIGHTNING_NODE_IP"
+      APP_LIGHTNING_NODE_GRPC_PORT: "$APP_LIGHTNING_NODE_GRPC_PORT"
+      TOR_HOST: "$TOR_PROXY_IP"
+      TOR_PORT: "$TOR_PROXY_PORT"
+      APP_DEEZY_SERVICE_CONFIG_DIR: "/app/config"
+  earn:
+    image: andredevjs/deezy-auto-earn:v1.0
+    restart: on-failure
+    stop_grace_period: 1m
+    volumes:
+      - ${APP_LIGHTNING_NODE_DATA_DIR}:/lnd:ro
+      - ${APP_DEEZY_SERVICE_LOGS_DIR}:/app/logs
+      - ${APP_DEEZY_SERVICE_CONFIG_DIR}:/app/config
+
+
+
+ # environment:
     #   PROXY_AUTH_ADD: "false"
 
     # Pass any environment variables to your app for configuration in the form:
@@ -35,23 +59,3 @@ services:
   # db:
   #   image: <docker-image>:<tag>
   #   ...
-  earn:
-    image: docker.io/andredevjs/deezy-auto-earn:v0.1
-    restart: on-failure
-    stop_grace_period: 1m
-    ports:
-      - 3007:3007
-    volumes:
-      # Uncomment to mount LND's data directory as read-only
-      # inside the Docker container at path /lnd
-      - ${APP_LIGHTNING_NODE_DATA_DIR}:/lnd:ro
-      - ${APP_DEEZY_SERVICE_DATA_DIR}:/app/logs
-
-      # Uncomment to mount Bitcoin Core's data directory as
-      # read-only inside the Docker container at path /bitcoin
-      # - ${APP_BITCOIN_DATA_DIR}:/bitcoin:ro
-    environment:
-      APP_LIGHTNING_NODE_IP: "$APP_LIGHTNING_NODE_IP"
-      APP_LIGHTNING_NODE_GRPC_PORT: "$APP_LIGHTNING_NODE_GRPC_PORT"
-      TOR_HOST: "$TOR_PROXY_IP"
-      TOR_PORT: "$TOR_PROXY_PORT"
