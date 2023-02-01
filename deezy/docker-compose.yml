@@ -15,6 +15,7 @@ services:
     ports:
       - 3007:3007
     volumes:
+      - ${APP_LIGHTNING_NODE_DATA_DIR}:/lnd:ro
       - ${APP_DEEZY_SERVICE_LOGS_DIR}:/app/logs
       - ${APP_DEEZY_SERVICE_CONFIG_DIR}:/app/config
     environment:
@@ -25,6 +26,7 @@ services:
       APP_DEEZY_SERVICE_CONFIG_DIR: "/app/config"
       TLS_CERT_PATH: "/lnd/lnd/tls.cert"
       MACAROON_PATH: "/lnd/chain/bitcoin/mainnet/admin.macaroon"
+
   earn:
     image: andredevjs/deezy-auto-earn:v1.0
     restart: on-failure
